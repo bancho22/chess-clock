@@ -6,7 +6,7 @@ import {updateCurrentPlayer, Players} from './index.actions'
 import './index.css'
 
 const Countdown = ({player, duration}) => (
-  <div className='countdown'>
+  <div className={`countdownContent ${player}`}>
     <span>{player}</span>
     <span>{zeroFill(2, duration.get('minutes'))}:{zeroFill(2, duration.get('seconds'))}</span>
     <span>.{zeroFill(3, duration.get('milliseconds'))}</span>
@@ -28,7 +28,12 @@ const App = ({player, black, white, onButtonClick}) => {
           duration={blackDuration}
         />
       </div>
-      <button className='container mainButton' onClick={() => onButtonClick(player)}>Button</button>
+      <button
+        className='container mainButton'
+        onClick={() => onButtonClick(player)}
+      >
+        {player === null ? 'Start game' : 'Next turn'}
+      </button>
     </div>
   )
 }
