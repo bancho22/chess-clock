@@ -18,7 +18,7 @@ const setCurrentPlayer = ({player, timestamp}) => ({type: SET_CURRENT_PLAYER, pl
 
 const updateTimeLeft = ({timestamp}) => ({type: UPDATE_TIME_LEFT, timestamp})
 
-export const updateCurrentPlayer = ({dispatch, player}) => dispatch => {
+export const updateCurrentPlayer = ({player}) => dispatch => {
   if (player === null) {
     dispatch(setCurrentPlayer({
       player: Players.WHITE,

@@ -18,7 +18,7 @@ const mapStateToProps = ({player, timeLeft: {black, white}}) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onButtonClick: player => dispatch(updateCurrentPlayer({player, dispatch}))
+  onButtonClick: player => dispatch(updateCurrentPlayer({player}))
 })
 
 export default connect(
