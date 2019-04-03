@@ -11,7 +11,27 @@ code
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 .app
-  background-color #f2f0f0
+  height 100vh
+
+  &.white
+    background-color #f2f0f0
+
+    .countdownContent
+      box-shadow 0px 0px 54px 0px rgba(0,0,0,0.75)
+
+    .mainButton
+      color black
+      border black
+
+  &.black
+    background-color #333231
+
+    .countdownContent
+      box-shadow 0px 0px 54px 0px rgba(256,256,256,0.75)
+
+    .mainButton
+      color white
+      border white
 
   .container
     position absolute
@@ -30,8 +50,7 @@ code
     &.mainButton
       top 70%
       background none
-      color inherit
-      border 2px solid black
+      border 2px solid
       padding 20px 50px
       text-transform uppercase
       font inherit
@@ -45,10 +64,10 @@ code
     width 20%
     border 2px solid
     width 20vw
-    box-shadow 0px 0px 54px 0px rgba(0,0,0,0.75)
 
     &.white
        border-color black
+       background-color #f2f0f0
 
     &.black
       background-color #333231

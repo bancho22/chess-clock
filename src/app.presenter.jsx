@@ -17,7 +17,7 @@ const App = ({player, black, white, onButtonClick}) => {
   const whiteDuration = moment.duration(white)
   const blackDuration = moment.duration(black)
   return (
-    <div className='app'>
+    <div className={`app ${player ? player : 'white'}`}>
       <div className={`container countdown ${player ? player : ''}`}>
         <Countdown
           player={Players.WHITE}
@@ -32,7 +32,7 @@ const App = ({player, black, white, onButtonClick}) => {
         className='container mainButton'
         onClick={() => onButtonClick(player)}
       >
-        {player === null ? 'Start game' : 'Next turn'}
+        {player === null ? 'Start game' : 'Next player'}
       </button>
     </div>
   )
