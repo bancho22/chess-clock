@@ -9,7 +9,7 @@ export const UPDATE_TIME_LEFT = 'UPDATE_TIME_LEFT'
  * other declarations
  */
 
-const Players = {
+export const Players = {
   WHITE: 'white',
   BLACK: 'black'
 }
