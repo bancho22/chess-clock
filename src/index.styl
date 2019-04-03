@@ -11,5 +11,13 @@ code
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 .app
-  display flex
-  flex-direction column
+  .container
+    position absolute
+    left 50%
+    transform translateX(-50%)
+
+    &.countdown
+      top 30%
+
+    &.mainButton
+      top 70%

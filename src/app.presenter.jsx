@@ -5,9 +5,11 @@ import './index.css'
 
 const App = ({player, black, white, onButtonClick}) => (
   <div className='app'>
-    <span>White: {white}</span>
-    <span>Black: {black}</span>
-    <button onClick={() => onButtonClick(player)}>Button</button>
+    <div className='container countdown'>
+      <span className={`countdown ${player ? player : ''}`}>White: {white}</span>
+      <span className={`countdown ${player ? player : ''}`}>Black: {black}</span>
+    </div>
+    <button className='container mainButton' onClick={() => onButtonClick(player)}>Button</button>
   </div>
 )
 
