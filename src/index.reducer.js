@@ -32,7 +32,9 @@ const chessClock = createReducer({
         ...lastTurnStart,
         [player]: timestamp
       },
-      gameStartTimestamp: (prevPlayer === null) ? timestamp : gameStartTimestamp,
+      gameStartTimestamp: (prevPlayer === null)
+        ? timestamp
+        : gameStartTimestamp,
       turnsLength: lastTurnStart[opposingPlayer(player)]
         ? [
           ...turnsLength,

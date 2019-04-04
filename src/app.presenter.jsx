@@ -13,39 +13,34 @@ const Countdown = ({player, duration}) => (
   </div>
 )
 
-const App = ({player, black, white, turnsLength, totalTimePassed, onButtonClick}) => {
-  // const allTurnsLength = turnsLength.reduce((sum, turn) => sum + turn, 0)
-  const whiteDuration = moment.duration(white)
-  const blackDuration = moment.duration(black)
-  return (
-    <div className={`app ${player ? player : 'white'}`}>
-      <div className={`container countdown ${player ? player : ''}`}>
-        <Countdown
-          player={Players.WHITE}
-          duration={whiteDuration}
-        />
-        <Countdown
-          player={Players.BLACK}
-          duration={blackDuration}
-        />
-      </div>
-      <button
-        className='container mainButton'
-        onClick={() => onButtonClick(player)}
-      >
-        {player === null ? 'Start game' : 'Next player'}
-      </button>
-      <div className='lengthContainer'>
-        {turnsLength.map(turnLength => (
-          <div
-            className='duration'
-            style={{width: `${(turnLength / totalTimePassed) * 100}%`}}
-          />
-        ))}
-      </div>
+const App = ({player, black, white, turnsLength, totalTimePassed, onButtonClick}) => (
+  <div className={`app ${player ? player : 'white'}`}>
+    <div className={`container countdown ${player ? player : ''}`}>
+      <Countdown
+        player={Players.WHITE}
+        duration={moment.duration(white)}
+      />
+      <Countdown
+        player={Players.BLACK}
+        duration={moment.duration(black)}
+      />
     </div>
-  )
-}
+    <button
+      className='container mainButton'
+      onClick={() => onButtonClick(player)}
+    >
+      {player === null ? 'Start game' : 'Next player'}
+    </button>
+    <div className='lengthContainer'>
+      {turnsLength.map(turnLength => (
+        <div
+          className='duration'
+          style={{width: `${(turnLength / totalTimePassed) * 100}%`}}
+        />
+      ))}
+    </div>
+  </div>
+)
 
 const mapStateToProps = ({player, timeLeft: {black, white}, turnsLength, totalTimePassed}) => ({
   player,
