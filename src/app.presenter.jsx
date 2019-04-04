@@ -14,6 +14,7 @@ const Countdown = ({player, duration}) => (
 )
 
 const App = ({player, black, white, turnsLength, onButtonClick}) => {
+  const allTurnsLength = turnsLength.reduce((sum, turn) => sum + turn, 0)
   const whiteDuration = moment.duration(white)
   const blackDuration = moment.duration(black)
   return (
@@ -34,6 +35,14 @@ const App = ({player, black, white, turnsLength, onButtonClick}) => {
       >
         {player === null ? 'Start game' : 'Next player'}
       </button>
+      <div className='lengthContainer'>
+        {turnsLength.map(turnLength => (
+          <div
+            className='duration'
+            style={{width: `${(turnLength / allTurnsLength) * 100}%`}}
+          />
+        ))}
+      </div>
     </div>
   )
 }
