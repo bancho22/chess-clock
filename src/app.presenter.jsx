@@ -13,7 +13,7 @@ const Countdown = ({player, duration}) => (
   </div>
 )
 
-const App = ({player, black, white, onButtonClick}) => {
+const App = ({player, black, white, turnsLength, onButtonClick}) => {
   const whiteDuration = moment.duration(white)
   const blackDuration = moment.duration(black)
   return (
@@ -38,10 +38,11 @@ const App = ({player, black, white, onButtonClick}) => {
   )
 }
 
-const mapStateToProps = ({player, timeLeft: {black, white}}) => ({
+const mapStateToProps = ({player, timeLeft: {black, white}, turnsLength}) => ({
   player,
   black,
-  white
+  white,
+  turnsLength
 })
 
 const mapDispatchToProps = dispatch => ({
