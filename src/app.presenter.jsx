@@ -13,8 +13,8 @@ const Countdown = ({player, duration}) => (
   </div>
 )
 
-const App = ({player, black, white, turnsLength, onButtonClick}) => {
-  const allTurnsLength = turnsLength.reduce((sum, turn) => sum + turn, 0)
+const App = ({player, black, white, turnsLength, totalTimePassed, onButtonClick}) => {
+  // const allTurnsLength = turnsLength.reduce((sum, turn) => sum + turn, 0)
   const whiteDuration = moment.duration(white)
   const blackDuration = moment.duration(black)
   return (
@@ -39,7 +39,7 @@ const App = ({player, black, white, turnsLength, onButtonClick}) => {
         {turnsLength.map(turnLength => (
           <div
             className='duration'
-            style={{width: `${(turnLength / allTurnsLength) * 100}%`}}
+            style={{width: `${(turnLength / totalTimePassed) * 100}%`}}
           />
         ))}
       </div>
@@ -47,11 +47,12 @@ const App = ({player, black, white, turnsLength, onButtonClick}) => {
   )
 }
 
-const mapStateToProps = ({player, timeLeft: {black, white}, turnsLength}) => ({
+const mapStateToProps = ({player, timeLeft: {black, white}, turnsLength, totalTimePassed}) => ({
   player,
   black,
   white,
-  turnsLength
+  turnsLength,
+  totalTimePassed
 })
 
 const mapDispatchToProps = dispatch => ({
