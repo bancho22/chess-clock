@@ -36,6 +36,6 @@ export const updateCurrentPlayer = ({player}) => dispatch => {
   if (player === null) {
     setInterval(() => dispatch(updateTimeLeft({
       timestamp: Date.now()
-    })), 50)
+    })), 64)
   }
 }
