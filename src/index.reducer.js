@@ -5,7 +5,7 @@ import {
 } from './index.actions'
 
 const initialState = {
-  player: null,
+  player: null, // game starts when a player is set for the first time
   lastTimeChange: undefined,
   timeLeft: {
     white: 1000 * 60 * 15,
